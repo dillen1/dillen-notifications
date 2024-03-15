@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+:root {
+  overflow: hidden !important;
+  color-scheme: none !important;
+}
+
+.v-progress-circular__underlay {
+  stroke: transparent !important;
+}
+
+.progress .v-progress-circular__overlay {
+  transition: all 0.0s ease-in-out !important;
+}
+
+.slideFromRight-enter-active {
+  animation: slideFromRight 0.3s;
+}
+.slideFromRight-leave-active {
+  animation: slideFromRight 0.3s reverse;
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.slideFromLeft-enter-active {
+  animation: slideFromLeft 0.3s;
+}
+.slideFromLeft-leave-active {
+  animation: slideFromLeft 0.3s reverse;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+

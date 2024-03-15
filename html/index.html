@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.5.9/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>dillen_notifications</title>
+</head>
+<body>
+    <div id="app">
+        <v-app style="background: transparent;">
+            <v-main>
+                <v-layout :class="`d-flex fill-height pa-2 ${sides[data.Position.Side]} ${positions[data.Position.Align]}`" style="height: 100vh; flex-direction: column; overflow: hidden">
+                    <template v-for="i in activeNotifications" :key="i">
+                        <Transition :name="data.Position.Side == 'right' ? 'slideFromRight' : 'slideFromLeft'" mode="out-in">
+                            <v-card v-if="i.show" flat class="pa-3 ma-1" :color="data.Background"  width="350">
+                                <div class="d-flex align-center">
+                                    <div>
+                                        <v-progress-circular class="progress" :style="`box-shadow: ${data.Types[i.type].color} 0px 0px 100px; border-radius: 50vh`" :color="data.Types[i.type].color" size="45" width="3" :model-value="i.progress">
+                                            <v-icon>{{ data.Types[i.type].icon }}</v-icon>
+                                        </v-progress-circular>
+                                    </div>
+                
+                                    <div class="d-flex flex-column align-items justify-center ml-3">
+                                        <div>
+                                            <span :style="`color: ${data.Types[i.type].color}; font-weight: 500; font-size: 1.1rem`">{{ i.title }}</span>
+                                        </div>
+                                        <div>
+                                            <span style="color: #eee; font-weight: 300;" v-html="convertMessage(i.message)"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </v-card>
+                        </Transition>
+                    </template>
+                </v-layout>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.5.9/dist/vuetify.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

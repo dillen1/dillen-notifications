@@ -42,33 +42,27 @@ exports('sendNotification', function(data)
     Notify:new(data)
 end)
 
-RegisterCommand('notification', function()
+RegisterCommand('testNotify', function()
     Notify:new({
-        message = 'This is a ~r~error~s~ a notification',
+        message = 'This is a ~r~error~s~ notification',
         title = 'Error',
         type = 'error',
         duration = 5000
     })
 
-    Wait(1000)
-
     Notify:new({
-        message = 'This is a ~o~warning~s~ a notification',
+        message = 'This is a ~o~warning~s~ notification',
         title = 'Warning',
         type = 'warning',
         duration = 5000
     })
 
-    Wait(1000)
-
     Notify:new({
-        message = 'This is a ~g~success~s~ a notification',
+        message = 'This is a ~g~success~s~ notification',
         title = 'Success',
         type = 'success',
         duration = 5000
     })
-
-    Wait(1000)
 
     Notify:new({
         message = 'This is a ~b~info~s~ notification',
