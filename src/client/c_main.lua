@@ -4,10 +4,10 @@ Notify = {
 
 CreateThread(function()
     while not NetworkIsPlayerActive(PlayerId()) do 
-        Wait(5000)
+        Wait(500)
     end
 
-    Wait(2000) -- Wait for the NUI to be ready
+    Wait(3000) -- Wait for the NUI to be ready
 
     SendNUIMessage({
         message = 'setData',
@@ -16,7 +16,7 @@ CreateThread(function()
 
     Notify.isLoaded = true
 
-    print('[dillen_notify] Ready to use')
+    print(('[^5%s^0] [^2INFO^0] %s'):format(GetCurrentResourceName(), 'Notify loaded and ready to use.'))
 end)
 
 function Notify:new(data)
@@ -42,7 +42,7 @@ exports('sendNotification', function(data)
     Notify:new(data)
 end)
 
-RegisterCommand('testNotify', function()
+RegisterCommand('notifyTest', function()
     Notify:new({
         message = 'This is a ~r~error~s~ notification',
         title = 'Error',
