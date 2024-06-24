@@ -10,7 +10,7 @@
 --     type = string,
 --     duration = int
 -- }
-exports['dillen_notifications']:sendNotification(data)
+exports['dillen-notifications']:sendNotification(data)
 ```
 ## Trigger Events (Serversided)
 ### How to send an notification from server side with our trigger
