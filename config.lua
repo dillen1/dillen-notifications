@@ -4,7 +4,7 @@ Config = {
     UseSound = true, -- Use a sound when a notification is shown
 
     Position = {
-        Align = 'center', -- Options: top, center, bottom
+        Align = 'bottom', -- Options: top, center, bottom
         Side = 'right', -- Options: left, right
     },
 
